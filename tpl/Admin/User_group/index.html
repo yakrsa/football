@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>权限管理</title>
+<include file="common:public" />
+</head>
+<div class="cr"></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="alist">
+	  <tr>
+		<td width="150">权限组名称</td>
+		<td width="30">价格</td>
+		<td width="100" >自义定图文条数</td>
+		<td width="100">请求次数</td>
+		<td width="100">是否显示版权</td>
+		<td width="100">公众号创建个数</td>
+                <td width="70">包月数</td>
+                <td width="70">创建会员数</td>
+                <td width="70">包含功能</td>
+                <td width="100">申请账号</td>
+		<td width="100">管理操作</td>
+	  </tr>
+	    <volist name="list" id="vo">
+			<tr>
+				<td >{iVanvicms:$vo.name}</td>
+				<td >{iVanvicms:$vo['price']}</td>
+				<td >{iVanvicms:$vo.diynum}</td>
+				<td align='center'>{iVanvicms:$vo.connectnum}</td>
+				<td align='center'><if condition="$vo['iscopyright'] eq 1">是<else/>否</if></td>
+				<td align='center'>{iVanvicms:$vo.gongzhongnum}</td>
+                                <td align='center'>{iVanvicms:$vo.expdate}</td>
+				<td align='center'>{iVanvicms:$vo.create_card_num}</td>
+                                <td align='center'><if condition="$vo['func'] eq 1">微商城<else/>微官网</if></td>
+				<td align='center'>
+                                        <a href="javascript:;" onclick="genAuthcode({iVanvicms:$vo.id})">生成邀请码</a>
+				</td>
+				<td align='center'>
+					<a href="{iVanvicms::U('User_group/edit/',array('id'=>$vo['id']))}">修改</a>
+					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{iVanvicms::U('User_group/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+				</td>
+			</tr>
+	    </volist>
+     <tr bgcolor="#FFFFFF"> 
+      <td colspan="10"><div class="listpage">{iVanvicms:$page}</div></td>
+	  <td></td>
+    </tr>
+   
+</table>
+</body>
+</html>

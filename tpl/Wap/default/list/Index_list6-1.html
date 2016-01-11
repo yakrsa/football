@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{iVanvicms::RES}/css/weimob-ui-1-1.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{iVanvicms::RES}/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{iVanvicms::RES}/css/list-6.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{iVanvicms::RES}/css/menu-1.css?2013-10-21-2" media="all" />
+
+<script type="text/javascript" src="{iVanvicms::RES}/js/jQuery.js"></script>
+<script type="text/javascript" src="{iVanvicms::RES}/js/swipe.js"></script>
+<script type="text/javascript" src="{iVanvicms::RES}/js/zepto.js"></script>
+<title>{iVanvicms:$home['webname']}</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <meta name="keywords" content="{iVanvicms::C('keyword')}" />
+        <meta name="description" content="{iVanvicms::C('content')}" />
+	<!-- Mobile Devices Support @begin -->
+            <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+            <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+            <meta content="no-cache" http-equiv="pragma">
+            <meta content="0" http-equiv="expires">
+            <meta content="telephone=no, address=no" name="format-detection">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+            <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- Mobile Devices Support @end -->
+        <link rel="shortcut icon" href="/tpl/static/favicon.ico" />
+        <style>
+            img{width:100%!important;}
+        </style>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+        <link rel="stylesheet" type="text/css" href="{iVanvicms::RES}/css/font-awesome.css?v=2013-08-17" media="all" />
+<div class="weimob-page">
+   <div class="top_bar footer_bar">
+        <nav>
+            <ul class="top_menu">
+                <li onclick="window.history.go(-1);"><span class="icon-chevron-sign-left"></span></li>
+                 <li onclick='location.href="{iVanvicms::C('site_url')}{iVanvicms::U('Wap/Index/index',array('token'=>$gtoken,'wecha_id'=>$wecha_id,'iVanvicms'=>'mp.weixin.qq.com'))}"'><span class="icon-home"></span></li>
+	      <volist name="plugmenu" id="vo">
+	         <if condition="$vo['ltype'] eq 'tel'">
+		<li><a href="tel:{iVanvicms:$vo.tel}"><span class="icon-phone"></span></a></li></if>
+		</volist>
+		<li onclick="$('#menu_font').toggleClass('hidden');">
+                    <span class="icon-list-ul"></span>
+                    <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+                        <include file="Public:Topaction"/>  
+		   </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+	        <div class="weimob-content">
+            <div class="weimob-list">
+	    <div align="center" >{iVanvicms:$notice}</div>
+	      <volist name="res" id="so">  
+
+<if condition="$so['url']">
+<a  href="{iVanvicms:$so.url}" class="weimob-list-item">
+<else />
+<a  href="{iVanvicms::U('Index/content',array('id'=>$so['id'],'token'=>$so['token'],'wecha_id'=>$wecha_id,'iVanvicms'=>'mp.weixin.qq.com'))}" class="weimob-list-item">
+</if>
+	     <div class="weimob-list-item-line">
+                            <div class="weimob-list-item-title">{iVanvicms:$so.title}</div>
+                        </div>
+                        <div class="weimob-list-item-icon-two icon-arrow-r"></div>
+                    </a>
+
+	             
+                       </volist>  
+                            
+			    
+			    </div>
+        </div>
+    </div>        			<footer>
+				<div class="weimob-copyright">
+					<a href="/index.php?g=Wap&m=Index&a=index&token={iVanvicms:$gtoken}&wecha_id={iVanvicms:$wecha_id}&iVanvicms=mp.weixin.qq.com">{iVanvicms:$copyright}</a>
+				</div>
+									<span class="weimob-support" style="display:none;">{iVanvicms::C('site_name')} 技术支持QQ1325050253</span>
+							</footer>
+				<div mark="stat_code" style="width:0px; height:0px; display:none;">{iVanvicms:$home.stat_code|htmlspecialchars_decode}
+					</div>
+	</body>
+</html>

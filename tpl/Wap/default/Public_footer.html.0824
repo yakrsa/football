@@ -1,0 +1,11 @@
+<html>
+<body>				
+<div class="weimob-copyright">
+					<p align="center"><a href="/index.php?g=Wap&m=Index&a=index&token={iVanvicms:$gtoken}&wecha_id={iVanvicms:$wecha_id}&iVanvicms=mp.weixin.qq.com">{iVanvicms:$copyright}</a></p>
+				</div>
+									<span class="weimob-support" style="display:none;">{iVanvicms::C('site_name')} 技术支持QQ1325050253</span>
+							</footer>
+				<div mark="stat_code">{iVanvicms:$home.stat_code|htmlspecialchars_decode}
+					</div>
+		    </body>
+</html>

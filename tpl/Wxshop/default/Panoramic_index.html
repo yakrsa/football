@@ -1,0 +1,68 @@
+<include file="Public:head"/>
+<div id="main">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="box">
+                        <div class="box-title">
+                            <div class="span12">
+                                <h3>
+                                    <i class="icon-table"></i>360全景配置 
+                                </h3>
+								
+                            </div>
+                        </div>
+				<link rel="stylesheet" type="text/css" href="{iVanvicms::RES}/{iVanvicms::MODULE_NAME}/css/style.css" />
+				<script src="{iVanvicms::STATICS}/artDialog/jquery.artDialog.js"></script>
+				<script src="{iVanvicms::STATICS}/artDialog/plugins/iframeTools.js"></script>
+				<div id="{iVanvicms::MODULE_NAME}" class="content {iVanvicms::MODULE_NAME}">
+					<div class="cLineB">
+						<h4 class="left">{iVanvicms:$activityname}活动信息 (<if condition="$count eq ''">0<else/>{iVanvicms:$count}</if>) 条<span class="FAQ">你本月有 {iVanvicms:$group.activitynum} 次机会可免收活动创建费，已经使用了 {iVanvicms:$activitynum} 次机会!</span></h4>
+						<div class="clr"></div>
+					</div>
+					<div class="cLine">
+						<div class="pageNavigator left">
+							<a href="{iVanvicms::U(MODULE_NAME.'/add',array('token'=>$token))}" title="新增{iVanvicms:$activityname}" class="btn"><i class="icon-plus"></i>新增{iVanvicms:$activityname}</a>
+						</div>
+						<div class="clr"></div>
+					</div>
+					<div class="msgWrap">
+						<form method="post" action="" id="info">
+							<table class="ListProduct" border="0" cellspacing="0" cellpadding="0" width="100%">
+								<thead>
+									<tr>
+										<th>名称</th>
+										<th>关键词</th>
+										<th>总浏览数</th>
+										<th>外链代码</th>
+										<th class="norightborder">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr></tr>
+									<volist name="list" id="o"> 
+									<tr>
+										<td>{iVanvicms:$o.name}</td>
+										<td>{iVanvicms:$o.keyword}</td>
+										<td>{iVanvicms:$o.click}</td>
+										<td>{iVanvicms:$activityname} {iVanvicms:$o.id}</td>
+										<td class="norightborder"><a href="{iVanvicms::U('Wap/'.MODULE_NAME.'/item',array('id'=>$o['id'],'token'=>$o['token']))}" target="_blank">预览</a> <a href="{iVanvicms::U(MODULE_NAME.'/edit',array('token'=>$token,'id'=>$o['id']))}">修改</a> <a href="javascript:drop_confirm('您确定要删除吗?', '{iVanvicms::U(MODULE_NAME.'/delete',array('token'=>$token,'id'=>$o['id']))}');">删除</a></td>
+									</tr>
+									</volist>
+								</tbody>
+							</table>
+							<input type="hidden" name="token" value="{iVanvicms:$_GET['token']}" />
+						</form>
+					</div>
+					<div class="cLine">
+						<div class="pageNavigator right">
+							<div class="pages"></div>
+						</div>
+						<div class="clr"></div>
+					</div>
+				</div>
+			</div>	
+			<div class="clr"></div>
+		</div>
+	</div>
+<include file="Public:footer"/>
